@@ -15,7 +15,7 @@ angular.module('insight.currency').controller('CurrencyController',
 
         if (this.symbol === 'USD') {
           response = _roundFloat((value * this.factor), 2);
-        } else if (this.symbol === 'mBTC') {
+        } else if (this.symbol === 'mMONA') {
           this.factor = 1000;
           response = _roundFloat((value * this.factor), 5);
         } else {
@@ -36,7 +36,7 @@ angular.module('insight.currency').controller('CurrencyController',
         Currency.get({}, function(res) {
           $rootScope.currency.factor = $rootScope.currency.bitstamp = res.data.bitstamp;
         });
-      } else if (currency === 'mBTC') {
+      } else if (currency === 'mMONA') {
         $rootScope.currency.factor = 1000;
       } else {
         $rootScope.currency.factor = 1;
