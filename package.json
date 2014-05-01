@@ -1,13 +1,17 @@
 {
-  "name": "insight-bitcore",
-  "description": "An open-source frontend for the Insight API. The Insight API provides you with a convenient, powerful and simple way to query and broadcast data on the bitcoin network and build your own services with it.",
+  "name": "insight-monacore",
+  "description": "An open-source frontend for the Insight API. The Insight API provides you with a convenient, powerful and simple way to query and broadcast data on the monacoin network and build your own services with it.",
   "version": "0.1.9",
   "author": {
-    "name": "Ryan X Charles",
-    "email": "ryan@bitpay.com"
+    "name": "Mona Tore",
+    "email": "monatr.jp@gmail.com"
   },
-  "repository": "git://github.com/bitpay/insight.git",
+  "repository": "git://github.com/monatr/insight-monacore.git",
   "contributors": [
+    {
+      "name": "Ryan X Charles",
+      "email": "ryan@bitpay.com"
+    },
     {
       "name": "Matias Alejo Garcia",
       "email": "ematiu@gmail.com"
@@ -31,23 +35,23 @@
     }
   ],
   "bugs": {
-    "url": "https://github.com/bitpay/insight/issues"
+    "url": "https://github.com/monatr/insight-monacore/issues"
   },
-  "homepage": "https://github.com/bitpay/insight",
+  "homepage": "https://github.com/monatr/insight-monacore",
   "license": "MIT",
   "keywords": [
     "insight",
     "blockchain",
     "blockexplorer",
-    "bitcoin",
-    "bitcore",
+    "monacoin",
+    "monacore",
     "front-end"
   ],
   "scripts": {
-    "start": "INSIGHT_PUBLIC_PATH=public node node_modules/insight-bitcore-api/insight.js"
+    "start": "INSIGHT_PUBLIC_PATH=public node node_modules/insight-monacore-api/insight.js"
   },
   "dependencies": {
-    "insight-bitcore-api": "~0.1.9"
+    "insight-monacore-api": "~0.1.9"
   },
   "devDependencies": {
     "bower": "~1.2.8",
