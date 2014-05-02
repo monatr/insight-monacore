@@ -9,6 +9,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-css');
   grunt.loadNpmTasks('grunt-markdown');
   grunt.loadNpmTasks('grunt-macreload');
+  grunt.loadNpmTasks('grunt-angular-gettext');
 
   // Project Configuration
   grunt.initConfig({
@@ -29,7 +30,7 @@ module.exports = function(grunt) {
         dest: 'public/js/vendors.js'
       },
       angular: {
-        src: ['public/lib/angular/angular.min.js', 'public/lib/angular-resource/angular-resource.min.js', 'public/lib/angular-route/angular-route.min.js', 'public/lib/angular-qrcode/qrcode.js', 'public/lib/angular-animate/angular-animate.min.js', 'public/lib/angular-bootstrap/ui-bootstrap.js', 'public/lib/angular-bootstrap/ui-bootstrap-tpls.js', 'public/lib/angular-ui-utils/ui-utils.min.js', 'public/lib/ngprogress/build/ngProgress.min.js'],
+        src: ['public/lib/angular/angular.min.js', 'public/lib/angular-resource/angular-resource.min.js', 'public/lib/angular-route/angular-route.min.js', 'public/lib/angular-qrcode/qrcode.js', 'public/lib/angular-animate/angular-animate.min.js', 'public/lib/angular-bootstrap/ui-bootstrap.js', 'public/lib/angular-bootstrap/ui-bootstrap-tpls.js', 'public/lib/angular-ui-utils/ui-utils.min.js', 'public/lib/angular-gettext/dist/angular-gettext.min.js', 'public/lib/ngprogress/build/ngProgress.min.js'],
         dest: 'public/js/angularjs-all.js'
       },
       main: {
@@ -57,7 +58,11 @@ module.exports = function(grunt) {
       main: {
         src: 'public/js/main.js',
         dest: 'public/js/main.min.js'
-      }
+      },
+      translations: {
+        src: 'public/js/translations.js',
+        dest: 'public/js/translations.min.js'
+      },
     },
     cssmin: {
       css: {
@@ -93,6 +98,20 @@ module.exports = function(grunt) {
         tasks: ['concat:css', 'cssmin', 'macreload'],
       },
     },
+		nggettext_extract: {
+			pot: {
+				files: {
+					'po/template.pot': ['public/views/*.html', 'public/views/**/*.html'],
+				},
+			},
+		},
+		nggettext_compile: {
+			all: {
+				files: {
+					'public/js/translations.js': ['po/*.po'],
+				},
+			},
+		},
   });
 
   //Making grunt default to force in order not to break the project.
