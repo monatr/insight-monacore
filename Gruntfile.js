@@ -58,7 +58,11 @@ module.exports = function(grunt) {
       main: {
         src: 'public/js/main.js',
         dest: 'public/js/main.min.js'
-      }
+      },
+      translations: {
+        src: 'public/js/translations.js',
+        dest: 'public/js/translations.min.js'
+      },
     },
     cssmin: {
       css: {

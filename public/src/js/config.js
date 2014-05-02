@@ -1,5 +1,11 @@
 'use strict';
 
+// Setting for gettext.
+angular.module('insight').run(function(gettextCatalog) {
+	gettextCatalog.currentLanguage = 'ja_JP';
+	gettextCatalog.debug = true;
+});
+
 //Setting up route
 angular.module('insight').config(function($routeProvider) {
   $routeProvider.
