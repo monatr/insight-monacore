@@ -13,7 +13,7 @@ angular.module('insight.currency').controller('CurrencyController',
       if (typeof value !== 'undefined' && value !== null) {
         var response;
 
-        if (this.symbol === 'USD') {
+        if (this.symbol === 'JPY') {
           response = _roundFloat((value * this.factor), 2);
         } else if (this.symbol === 'mMONA') {
           this.factor = 1000;
@@ -32,7 +32,7 @@ angular.module('insight.currency').controller('CurrencyController',
     $scope.setCurrency = function(currency) {
       $rootScope.currency.symbol = currency;
 
-      if (currency === 'USD') {
+      if (currency === 'JPY') {
         Currency.get({}, function(res) {
           $rootScope.currency.factor = $rootScope.currency.bitstamp = res.data.bitstamp;
         });

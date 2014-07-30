@@ -3,7 +3,7 @@
   <div class="secondary_navbar hidden-xs hidden-sm" scroll data-ng-class="{'hidden': !secondaryNavbar}" data-ng-show="tx.txid" data-ng-init="hideSNavbar=0">
     <div class="container" data-ng-if="!hideSNavbar">
       <div class="col-md-8 text-left">
-          <h3>Transaction</h3> {{tx.txid}}
+          <h3 translate>Transaction</h3> {{tx.txid}}
           <span class="btn-copy" clip-copy="tx.txid"></span>
       </div>
       <div class="col-md-4">
@@ -20,7 +20,7 @@
     </div>
   </div>
   <div class="ng-cloak" data-ng-cloak data-ng-if="tx.txid">
-    <h1>Transaction 
+    <h1><span translate>Transaction</span>
       <small data-ng-show="from_vin || from_vout">
         <span data-ng-show="from_vin">Input</span> 
         <span data-ng-show="from_vout">Output</span> 
@@ -29,7 +29,7 @@
     </h1>
     <div class="progress progress-striped active" data-ng-if="!tx.txid">
       <div class="progress-bar progress-bar-info" style="width: 100%">
-        <span>Loading Transaction Details...</span>
+        <span translate>Loading Transaction Details...</span>
       </div>
     </div>
     <div data-ng-if="tx.txid">
@@ -38,25 +38,25 @@
         <span class="txid text-muted">{{tx.txid}}</span>
         <span class="btn-copy" clip-copy="tx.txid"></span>
       </div>
-      <h2>Summary</h2>
+      <h2 translate>Summary</h2>
       <table class="table" style="table-layout: fixed">
         <tbody>
         <tr>
-          <td><strong> Size </strong></td>
+          <td><strong translate> Size </strong></td>
           <td class="text-muted text-right">{{tx.size}} (bytes)</td>
         </tr>
         <tr>
-          <td><strong>Received Time </strong></td>
+          <td><strong translate>Received Time </strong></td>
           <td data-ng-show="tx.firstSeenTs" class="text-muted text-right">{{tx.firstSeenTs * 1000|date:'medium'}}</td>
           <td data-ng-show="!tx.firstSeenTs" class="text-muted text-right">N/A</td>
         </tr>
         <tr>
-          <td><strong>Mined Time </strong></td>
+          <td><strong translate>Mined Time </strong></td>
           <td data-ng-show="tx.time" class="text-muted text-right">{{tx.time * 1000|date:'medium'}}</td>
           <td data-ng-show="!tx.time" class="text-muted text-right">N/A</td>
         </tr>
         <tr data-ng-show="tx.locktime">
-          <td><strong>LockTime </strong></td>
+          <td><strong translate>LockTime </strong></td>
           <td class="text-muted text-right">{{tx.locktime}}</td>
         </tr>
         </tbody>

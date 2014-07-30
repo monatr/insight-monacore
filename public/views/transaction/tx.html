@@ -24,7 +24,7 @@
     <div class="row" data-ng-if="tx.isCoinBase">
       <div class="col-md-12 transaction-vin-vout" data-ng-repeat="vin in tx.vin">
         <div class="ellipsis">
-          <span>No Inputs (Newly Generated Coins)</span>
+          <span translate>No Inputs (Newly Generated Coins)</span>
         </div>
       </div>
     </div>
@@ -43,15 +43,15 @@
               <a href="/address/{{vin.addr}}" data-ng-show="!vin.notAddr && vin.addr != $root.currentAddr">{{vin.addr}}</a>
             </div>
             <div data-ng-show="vin.unconfirmedInput" class="text-danger"> <span class="glyphicon glyphicon-warning-sign"></span> (Input unconfirmed)</div>
-            <div data-ng-show="vin.dbError" class="text-danger"> <span class="glyphicon glyphicon-warning-sign"></span> Incoherence in levelDB detected, please resync</div>
-            <div data-ng-show="vin.doubleSpentTxID" class="text-danger"> <span class="glyphicon glyphicon-warning-sign"></span> Double spent attempt detected. From tx:
+            <div data-ng-show="vin.dbError" class="text-danger"> <span class="glyphicon glyphicon-warning-sign"></span> <span translate>Incoherence in levelDB detected, please resync</span></div>
+            <div data-ng-show="vin.doubleSpentTxID" class="text-danger"> <span class="glyphicon glyphicon-warning-sign"></span> <span translate>Double spent attempt detected. From tx:</span>
               <a href="/tx/{{vin.doubleSpentTxID}}">{{vin.doubleSpentTxID}},{{vin.doubleSpentIndex}}</a>
             </div>
           </div>
         </div>
         <div class="showmore_collapse text-right" data-ng-show="tx.vinSimple.length > 5" data-ng-class="{ 'hidden': itemsExpanded}">
-          <a href="#" ng-hide="sizeInNoExpanded != tx.vinSimple.length" ng-click="currentInNoExpanded=0; sizeInNoExpanded=5"><small>...less</small></a>
-          <a href="#" ng-hide="currentInNoExpanded >= tx.vinSimple.length/sizeInNoExpanded - 1" ng-click="currentInNoExpanded=0; sizeInNoExpanded=tx.vinSimple.length"><small>more...</small></a>
+          <a href="#" ng-hide="sizeInNoExpanded != tx.vinSimple.length" ng-click="currentInNoExpanded=0; sizeInNoExpanded=5"><small translate>...less</small></a>
+          <a href="#" ng-hide="currentInNoExpanded >= tx.vinSimple.length/sizeInNoExpanded - 1" ng-click="currentInNoExpanded=0; sizeInNoExpanded=tx.vinSimple.length"><small translate>more...</small></a>
         </div>
       </div>
 
@@ -69,21 +69,21 @@
                 <a href="/address/{{vin.addr}}" data-ng-show="!vin.notAddr">{{vin.addr}}</a>
               </div>
               <div data-ng-show="vin.unconfirmedInput" class="text-danger"> 
-                <span class="glyphicon glyphicon-warning-sign"></span> (Input unconfirmed)
+                <span class="glyphicon glyphicon-warning-sign"></span> <span translate>(Input unconfirmed)</span>
               </div>
               <div data-ng-show="vin.dbError" class="text-danger"> 
                 <span class="glyphicon glyphicon-warning-sign"></span> 
-                Incoherence in levelDB detected, please resync
+                <span translate>Incoherence in levelDB detected, please resync</span>
               </div>
               <div data-ng-show="vin.doubleSpentTxID" class="text-danger"> 
                 <span class="glyphicon glyphicon-warning-sign"></span> 
-                Double spent attempt detected. From tx:
+                <span translate>Double spent attempt detected. From tx:</span>
                 <a href="/tx/{{<vin class=""></vin>doubleSpentTxID}}">{{vin.doubleSpentTxID}},{{vin.doubleSpentIndex}}</a>
               </div>
             </div> <!-- END OF PANEL BODY -->
           </div> <!-- END OF PANEL-DEFAULT -->
           <div class="small" style="margin-left:0.7em; word-wrap:break-word;" data-ng-class="{true: 'v_highlight', false: ''}[from_vin == true && v_index == vin.n]" >
-            <p><strong>scriptSig</strong></p>
+            <p><strong translate>scriptSig</strong></p>
               <div data-ng-repeat="item in vin.scriptSig.asm | split:' '" class="">
                 <p class="col-md-11 ellipsis text-muted">{{item}}</p>
                 <p class="btn-copy" clip-copy="item"></p>
@@ -91,12 +91,12 @@
           </div>
         </div>
         <div class="text-left">
-          <a href="#" data-ng-show="(from_vin) && tx.vin.length > 1" data-ng-class="{'text-muted': fromVinCollapsed}" data-ng-click="currentInExpanded=0; sizeInExpanded=tx.vin.length;fromVinCollapsed=1"><small>show input {{ v_index }}</small></a>
-          <a href="#" data-ng-show="(from_vin) && tx.vin.length > 1" data-ng-class="{'text-muted': !fromVinCollapsed}" data-ng-click="currentInExpanded=0; sizeInExpanded=tx.vin.length;fromVinCollapsed=0"><small>show all</small></a>
+          <a href="#" data-ng-show="(from_vin) && tx.vin.length > 1" data-ng-class="{'text-muted': fromVinCollapsed}" data-ng-click="currentInExpanded=0; sizeInExpanded=tx.vin.length;fromVinCollapsed=1"><small translate>show input {{ v_index }}</small></a>
+          <a href="#" data-ng-show="(from_vin) && tx.vin.length > 1" data-ng-class="{'text-muted': !fromVinCollapsed}" data-ng-click="currentInExpanded=0; sizeInExpanded=tx.vin.length;fromVinCollapsed=0"><small translate>show all</small></a>
         </div>
         <div class="showmore_collapse text-right" data-ng-show="tx.vin.length > 5 && !fromVinCollapsed" data-ng-class="{ 'hidden': !itemsExpanded}">
-          <a href="#" ng-hide="sizeInExpanded != tx.vin.length" ng-click="currentInExpanded=0; sizeInExpanded=5"><small>...less</small></a>
-          <a href="#" data-ng-class="{true: 'v_highlight_more', false: ''}[from_vin == true && v_index > 5]" ng-hide="currentInExpanded >= tx.vin.length/sizeInExpanded - 1" ng-click="currentInExpanded=0; sizeInExpanded=tx.vin.length"><small>more...</small></a>
+          <a href="#" ng-hide="sizeInExpanded != tx.vin.length" ng-click="currentInExpanded=0; sizeInExpanded=5"><small translate>...less</small></a>
+          <a href="#" data-ng-class="{true: 'v_highlight_more', false: ''}[from_vin == true && v_index > 5]" ng-hide="currentInExpanded >= tx.vin.length/sizeInExpanded - 1" ng-click="currentInExpanded=0; sizeInExpanded=tx.vin.length"><small translate>more...</small></a>
         </div>
       </div>
     </div>
@@ -132,8 +132,8 @@
           </div>
         </div>
         <div class="showmore_collapse text-right" data-ng-show="tx.voutSimple.length > 5" data-ng-class="{ 'hidden': itemsExpanded}">
-          <a href="#" ng-hide="sizeOutNoExpanded != tx.voutSimple.length" ng-click="currentOutNoExpanded=0; sizeOutNoExpanded=5"><small>...less</small></a>
-          <a href="#" ng-hide="currentOutNoExpanded >= tx.voutSimple.length/sizeOutNoExpanded - 1" ng-click="currentOutNoExpanded=0; sizeOutNoExpanded=tx.voutSimple.length"><small>more...</small></a>
+          <a href="#" ng-hide="sizeOutNoExpanded != tx.voutSimple.length" ng-click="currentOutNoExpanded=0; sizeOutNoExpanded=5"><small translate>...less</small></a>
+          <a href="#" ng-hide="currentOutNoExpanded >= tx.voutSimple.length/sizeOutNoExpanded - 1" ng-click="currentOutNoExpanded=0; sizeOutNoExpanded=tx.voutSimple.length"><small translate>more...</small></a>
         </div>
       </div>
 
@@ -170,7 +170,7 @@
           <a href="#" class="text-right" data-ng-show="(from_vout) && tx.vout.length > 1" data-ng-class="{'text-muted': !fromVoutCollapsed}" data-ng-click="currentOutExpanded=0; sizeOutExpanded=tx.vout.length;fromVoutCollapsed=0"><small>show all</small></a>
         </div>
         <div class="showmore_collapse text-right" data-ng-show="tx.vout.length > 5 && !fromVoutCollapsed" data-ng-class="{ 'hidden': !itemsExpanded}">
-          <a href="#" ng-hide="sizeOutExpanded != tx.vout.length" ng-click="currentOutExpanded=0; sizeOutExpanded=5"><small>...less</small></a>
+          <a href="#" ng-hide="sizeOutExpanded != tx.vout.length" ng-click="currentOutExpanded=0; sizeOutExpanded=5"><small translate>...less</small></a>
           <a href="#" data-ng-class="{true: 'v_highlight_more', false: ''}[from_vout == true && v_index > 5]" ng-hide="currentOutExpanded >= tx.vout.length/sizeOutExpanded - 1" ng-click="currentOutExpanded=0; sizeOutExpanded=tx.vout.length"><small>more...</small></a>
         </div>
       </div>
