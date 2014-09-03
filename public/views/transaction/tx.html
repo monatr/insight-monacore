@@ -1,7 +1,7 @@
 <div class="line-bot row" data-ng-hide="!tx">
   <div class="col-xs-7 col-md-8">
     <div class="ellipsis">
-      <a class="btn-expand" href="#" title="Show/Hide items details" data-ng-click="itemsExpanded = !itemsExpanded">
+      <a class="btn-expand" href="#" title="{{'Show/Hide items details'|translate}}" data-ng-click="itemsExpanded = !itemsExpanded">
         <span class="glyphicon glyphicon-plus-sign" data-ng-class="{'glyphicon-minus-sign': itemsExpanded}"></span>
       </a>
       <a href="/tx/{{tx.txid}}">{{tx.txid}}</a>
@@ -11,7 +11,7 @@
   <div class="col-xs-5 col-md-4 text-right text-muted">
     <div data-ng-show="tx.firstSeenTs">
       first seen at 
-      <time>{{tx.firstSeenTs * 1000 | date:'medium'}}</time>
+      <time>{{tx.firstSeenTs * 1000 | date:'yyyy/MM/dd HH:mm:ss'}}</time>
     </div>
     <div data-ng-show="tx.time && !tx.firstSeenTs">
       mined 
@@ -42,16 +42,22 @@
               <span class="text-muted" title="Current Monacoin Address" data-ng-show="vin.addr == $root.currentAddr">{{vin.addr}}</span>
               <a href="/address/{{vin.addr}}" data-ng-show="!vin.notAddr && vin.addr != $root.currentAddr">{{vin.addr}}</a>
             </div>
+<<<<<<< HEAD
             <div data-ng-show="vin.unconfirmedInput" class="text-danger"> <span class="glyphicon glyphicon-warning-sign"></span> (Input unconfirmed)</div>
             <div data-ng-show="vin.dbError" class="text-danger"> <span class="glyphicon glyphicon-warning-sign"></span> Incoherence in levelDB detected: {{vin.dbError}}</div>
             <div data-ng-show="vin.doubleSpentTxID" class="text-danger"> <span class="glyphicon glyphicon-warning-sign"></span> Double spent attempt detected. From tx:
+=======
+            <div data-ng-show="vin.unconfirmedInput" class="text-danger"> <span class="glyphicon glyphicon-warning-sign"></span> <span translate>(Input unconfirmed)</span></div>
+            <div data-ng-show="vin.dbError" class="text-danger"> <span class="glyphicon glyphicon-warning-sign"></span> <span translate>Incoherence in levelDB detected:</span> {{vin.dbError}}</div>
+            <div data-ng-show="vin.doubleSpentTxID" class="text-danger"> <span class="glyphicon glyphicon-warning-sign"></span> <span translate>Double spent attempt detected. From tx:</span>
+>>>>>>> fix translation handlings.
               <a href="/tx/{{vin.doubleSpentTxID}}">{{vin.doubleSpentTxID}},{{vin.doubleSpentIndex}}</a>
             </div>
           </div>
         </div>
         <div class="showmore_collapse text-left" data-ng-show="tx.vinSimple.length > 5" data-ng-class="{ 'hidden': itemsExpanded}">
-          <button type="button" class="btn btn-info btn-sm" ng-hide="sizeInNoExpanded != tx.vinSimple.length" ng-click="currentInNoExpanded=0; sizeInNoExpanded=5"><i class="glyphicon glyphicon-chevron-up"></i> Show less</button>
-          <button type="button" class="btn btn-info btn-sm" ng-hide="currentInNoExpanded >= tx.vinSimple.length/sizeInNoExpanded - 1" ng-click="currentInNoExpanded=0; sizeInNoExpanded=tx.vinSimple.length"><i class="glyphicon glyphicon-chevron-down"></i> Show more</button>
+          <button type="button" class="btn btn-info btn-sm" ng-hide="sizeInNoExpanded != tx.vinSimple.length" ng-click="currentInNoExpanded=0; sizeInNoExpanded=5"><i class="glyphicon glyphicon-chevron-up"></i> <span translate>Show less</span></button>
+          <button type="button" class="btn btn-info btn-sm" ng-hide="currentInNoExpanded >= tx.vinSimple.length/sizeInNoExpanded - 1" ng-click="currentInNoExpanded=0; sizeInNoExpanded=tx.vinSimple.length"><i class="glyphicon glyphicon-chevron-down"></i> <span translate>Show more</span></button>
         </div>
       </div>
 
@@ -131,8 +137,8 @@
             <div class="panel-body">
               <div class="pull-right btc-value" data-ng-class="{'text-success': $root.currentAddr == vout.addr}">
                 {{$root.currency.getConvertion(vout.value) || vout.value + ' MONA' }}
-                <span class="text-danger" data-ng-show="vout.isSpent" tooltip="Output is spent" tooltip-placement="left">(S)</span>
-                <span class="text-success" data-ng-show="!vout.isSpent"  tooltip="Output is unspent" tooltip-placement="left">(U)</span>
+                <span class="text-danger" data-ng-show="vout.isSpent" tooltip="{{'Output is spent'|translate}}" tooltip-placement="left">(S)</span>
+                <span class="text-success" data-ng-show="!vout.isSpent"  tooltip="{{'Output is unspent'|translate}}" tooltip-placement="left">(U)</span>
               </div>
 
               <div class="ellipsis">
@@ -161,8 +167,13 @@
           <div class="panel panel-default transaction-vin-vout">
             <div class="panel-body">
               <div class="pull-right btc-value">
+<<<<<<< HEAD
                 <span>{{$root.currency.getConvertion(vout.value) || vout.value + ' MONA'}}
                   <span class="text-success" data-ng-show="!vout.spentTxId" tooltip="Output is unspent" tooltip-placement="left">(U)</span>
+=======
+                <span>{{$root.currency.getConvertion(vout.value) || vout.value + ' BTC'}}
+                  <span class="text-success" data-ng-show="!vout.spentTxId" tooltip="{{'Output is unspent'|translate}}" tooltip-placement="left">(U)</span>
+>>>>>>> fix translation handlings.
                   <a class="glyphicon glyphicon-chevron-right" data-ng-show="vout.spentTxId" href="/tx/{{vout.spentTxId}}/</{{vout.spentIndex}}" title="Spent at: {{vout.spentTxId}},{{vout.spentIndex}}"></a>
                 </span>
               </div>
@@ -173,7 +184,7 @@
           </div>
           <div style="padding-left: 0.7em; padding-bottom: 2em; word-wrap:break-word" data-ng-class="{true: 'v_highlight', false: ''}[from_vout == true && v_index == vout.n]">
               <p class="small">
-                <strong>Type</strong>
+                <strong translate>Type</strong>
                 <span class="text-muted">{{vout.scriptPubKey.type}}</span>
               </p>
               <div class="small">
@@ -203,7 +214,7 @@
 </div>
 
 <div class="well well-sm bgwhite ellipsis" data-ng-if="itemsExpanded && !block.hash && tx.blockhash">
-  <strong>Included in Block</strong> <a class="text-muted" href="/block/{{tx.blockhash}}">{{tx.blockhash}}</a>
+  <strong translate>Included in Block</strong> <a class="text-muted" href="/block/{{tx.blockhash}}">{{tx.blockhash}}</a>
   <span class="btn-copy" clip-copy="tx.blockhash"></span>
 </div>
 
@@ -214,12 +225,20 @@
 =======
 <div class="line-top row ng-cloak" data-ng-hide="!tx" data-ng-cloak>
   <div class="col-xs-12 col-sm-4 col-md-4">
+<<<<<<< HEAD
     <span data-ng-show="!tx.isCoinBase &&  !isNaN(parseFloat(tx.fees))" class="txvalues txvalues-default">Fees: {{$root.currency.getConvertion(tx.fees) || tx.fees + 'MONA'}} </span>
 >>>>>>> s/Bitcoin/Monacoin, s/bitcoin/monacion, s/BTC/MONA
   </div>
   <div class="col-xs-6 col-sm-8 col-md-8 text-right">
     <span data-ng-show="tx.confirmations" class="txvalues txvalues-success">{{tx.confirmations}} Confirmations</span>
     <span data-ng-show="!tx.confirmations" class="txvalues txvalues-danger">Unconfirmed Transaction!</span>
+=======
+    <span data-ng-show="!tx.isCoinBase &&  !isNaN(parseFloat(tx.fees))" class="txvalues txvalues-default"><span translate>Fees:</span> {{$root.currency.getConvertion(tx.fees) || tx.fees + 'MONA'}} </span>
+  </div>
+  <div class="col-xs-12 col-sm-8 col-md-8 text-right">
+    <span data-ng-show="tx.confirmations" class="txvalues txvalues-success" translate>{{tx.confirmations}} Confirmations</span>
+    <span data-ng-show="!tx.confirmations" class="txvalues txvalues-danger" translate>Unconfirmed Transaction!</span>
+>>>>>>> fix translation handlings.
     <span class="txvalues txvalues-primary">{{$root.currency.getConvertion(tx.valueOut) || tx.valueOut + ' MONA' }}</span>
   </div>
 </div>

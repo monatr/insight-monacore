@@ -11,13 +11,16 @@
     </div>
     <div class="navbar-collapse collapse" collapse="$root.isCollapsed">
       <ul class="nav navbar-nav">
-        <li data-ng-repeat="item in menu" ui-route="/{{item.link}}" data-ng-class="{active: $uiRoute}">
-          <a href="/{{item.link}}">{{item.title}}</a>
+        <li ui-route="/blocks" data-ng-class="{active: $uiRoute}">
+          <a href="/blocks" translate>Blocks</a>
+        </li>
+        <li ui-route="/status" data-ng-class="{active: $uiRoute}">
+          <a href="/status" translate>Status</a>
         </li>
       </ul>
       <form id="search-form" data-ng-controller="SearchController" class="navbar-form navbar-left hidden-xs" role="search" data-ng-submit="search()">
         <div class="form-group" data-ng-class="{'has-error': badQuery}">
-          <input id="search" type="text" class="form-control" data-ng-model="q" data-ng-class="{'loading': loading}"  placeholder="Search for block, transaction or address" data-ng-submit="search()">
+          <input id="search" type="text" class="form-control" data-ng-model="q" data-ng-class="{'loading': loading}"  placeholder="{{'Search for block, transaction or address'|translate}}" data-ng-submit="search()">
         </div>
         <div class="no_matching text-danger" data-ng-show="badQuery" translate>No matching records found!</div>
       </form>
