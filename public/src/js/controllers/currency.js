@@ -40,7 +40,15 @@ angular.module('insight.currency').controller('CurrencyController',
 
       if (currency === 'JPY') {
         Currency.get({}, function(res) {
-          $rootScope.currency.factor = $rootScope.currency.bitstamp = res.data.bitstamp;
+          // Search for JPY.
+          var bitpayBTCJPY = null;
+          res.data.bitpayBBB.forEach(function(data){
+            if(data.code === 'JPY'){
+              bitpayBTCJPY = parseFloat(data.rate);
+            }
+          });
+          var monatrBTCMONA = (parseFloat(res.data.monatrBTCMONA.current_bid) + parseFloat(res.data.monatrBTCMONA.current_ask)) / 2.0;
+          $rootScope.currency.factor = bitpayBTCJPY / monatrBTCMONA;
         });
       } else if (currency === 'mMONA') {
         $rootScope.currency.factor = 1000;
@@ -51,7 +59,6 @@ angular.module('insight.currency').controller('CurrencyController',
 
     // Get initial value
     Currency.get({}, function(res) {
-      $rootScope.currency.bitstamp = res.data.bitstamp;
     });
 
   });
