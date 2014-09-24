@@ -1,7 +1,6 @@
 'use strict';
 
 angular.module('insight',[
-	'gettext',
   'ngAnimate',
   'ngResource',
   'ngRoute',

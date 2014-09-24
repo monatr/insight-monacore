@@ -198,7 +198,10 @@ margin-left: 0;
   margin-left: 5px;
 }
 
-#search { color: #fff; }
+#search {
+  color: #fff;
+  width: 20em;
+}
 
 #search::-webkit-input-placeholder {
   color: #BCDF7E;
