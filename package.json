@@ -50,7 +50,7 @@
     "start": "INSIGHT_PUBLIC_PATH=public node node_modules/insight-monacore-api/insight.js"
   },
   "dependencies": {
-    "insight-monacore-api": "~0.1.9"
+    "insight-monacore-api": "git://github.com/visvirial/insight-monacore-api.git"
   },
   "devDependencies": {
     "bower": "~1.2.8",
