@@ -42,15 +42,9 @@
               <span class="text-muted" title="Current Monacoin Address" data-ng-show="vin.addr == $root.currentAddr">{{vin.addr}}</span>
               <a href="/address/{{vin.addr}}" data-ng-show="!vin.notAddr && vin.addr != $root.currentAddr">{{vin.addr}}</a>
             </div>
-<<<<<<< HEAD
-            <div data-ng-show="vin.unconfirmedInput" class="text-danger"> <span class="glyphicon glyphicon-warning-sign"></span> (Input unconfirmed)</div>
-            <div data-ng-show="vin.dbError" class="text-danger"> <span class="glyphicon glyphicon-warning-sign"></span> Incoherence in levelDB detected: {{vin.dbError}}</div>
-            <div data-ng-show="vin.doubleSpentTxID" class="text-danger"> <span class="glyphicon glyphicon-warning-sign"></span> Double spent attempt detected. From tx:
-=======
             <div data-ng-show="vin.unconfirmedInput" class="text-danger"> <span class="glyphicon glyphicon-warning-sign"></span> <span translate>(Input unconfirmed)</span></div>
             <div data-ng-show="vin.dbError" class="text-danger"> <span class="glyphicon glyphicon-warning-sign"></span> <span translate>Incoherence in levelDB detected:</span> {{vin.dbError}}</div>
             <div data-ng-show="vin.doubleSpentTxID" class="text-danger"> <span class="glyphicon glyphicon-warning-sign"></span> <span translate>Double spent attempt detected. From tx:</span>
->>>>>>> fix translation handlings.
               <a href="/tx/{{vin.doubleSpentTxID}}">{{vin.doubleSpentTxID}},{{vin.doubleSpentIndex}}</a>
             </div>
           </div>
@@ -79,11 +73,7 @@
               </div>
               <div data-ng-show="vin.dbError" class="text-danger"> 
                 <span class="glyphicon glyphicon-warning-sign"></span> 
-<<<<<<< HEAD
-                Incoherence in levelDB detected: {{vin.dbError}}
-=======
                 <span translate>Incoherence in levelDB detected, please resync</span>
->>>>>>> Misc fix
               </div>
               <div data-ng-show="vin.doubleSpentTxID" class="text-danger"> 
                 <span class="glyphicon glyphicon-warning-sign"></span> 
@@ -101,21 +91,12 @@
           </div>
         </div>
         <div class="text-left">
-<<<<<<< HEAD
-          <button type="button" class="btn btn-default btn-sm" data-ng-show="(from_vin) && tx.vin.length > 1" data-ng-disabled="fromVinCollapsed" data-ng-click="currentInExpanded=0; sizeInExpanded=tx.vin.length;fromVinCollapsed=1">Show input #{{ v_index }}</button>
-          <button type="button" class="btn btn-default btn-sm" data-ng-show="(from_vin) && tx.vin.length > 1" data-ng-disabled="!fromVinCollapsed" data-ng-click="currentInExpanded=0; sizeInExpanded=tx.vin.length;fromVinCollapsed=0">Show all</button>
-        </div>
-        <div class="showmore_collapse text-left" data-ng-show="tx.vin.length > 5 && !fromVinCollapsed" data-ng-class="{ 'hidden': !itemsExpanded}">
-          <button type="button" class="btn btn-info btn-sm" ng-hide="sizeInExpanded != tx.vin.length" ng-click="currentInExpanded=0; sizeInExpanded=5"><i class="glyphicon glyphicon-chevron-up"></i> Show less</button>
-          <button type="button" class="btn btn-info btn-sm" ng-hide="currentInExpanded >= tx.vin.length/sizeInExpanded - 1" ng-click="currentInExpanded=0; sizeInExpanded=tx.vin.length"><i class="glyphicon glyphicon-chevron-down"></i> Show more</button>
-=======
           <a href="#" data-ng-show="(from_vin) && tx.vin.length > 1" data-ng-class="{'text-muted': fromVinCollapsed}" data-ng-click="currentInExpanded=0; sizeInExpanded=tx.vin.length;fromVinCollapsed=1"><small translate>show input {{ v_index }}</small></a>
           <a href="#" data-ng-show="(from_vin) && tx.vin.length > 1" data-ng-class="{'text-muted': !fromVinCollapsed}" data-ng-click="currentInExpanded=0; sizeInExpanded=tx.vin.length;fromVinCollapsed=0"><small translate>show all</small></a>
         </div>
         <div class="showmore_collapse text-right" data-ng-show="tx.vin.length > 5 && !fromVinCollapsed" data-ng-class="{ 'hidden': !itemsExpanded}">
           <a href="#" ng-hide="sizeInExpanded != tx.vin.length" ng-click="currentInExpanded=0; sizeInExpanded=5"><small translate>...less</small></a>
           <a href="#" data-ng-class="{true: 'v_highlight_more', false: ''}[from_vin == true && v_index > 5]" ng-hide="currentInExpanded >= tx.vin.length/sizeInExpanded - 1" ng-click="currentInExpanded=0; sizeInExpanded=tx.vin.length"><small translate>more...</small></a>
->>>>>>> Misc fix
         </div>
       </div>
     </div>
@@ -149,15 +130,9 @@
             </div>
           </div>
         </div>
-<<<<<<< HEAD
-        <div class="showmore_collapse text-left" data-ng-show="tx.voutSimple.length > 5" data-ng-class="{ 'hidden': itemsExpanded}">
-          <button type="button" class="btn btn-info btn-sm" ng-hide="sizeOutNoExpanded != tx.voutSimple.length" ng-click="currentOutNoExpanded=0; sizeOutNoExpanded=5"><i class="glyphicon glyphicon-chevron-up"></i> Show less</button>
-          <button type="button" class="btn btn-info btn-sm" ng-hide="currentOutNoExpanded >= tx.voutSimple.length/sizeOutNoExpanded - 1" ng-click="currentOutNoExpanded=0; sizeOutNoExpanded=tx.voutSimple.length"><i class="glyphicon glyphicon-chevron-down"></i> Show more</button>
-=======
         <div class="showmore_collapse text-right" data-ng-show="tx.voutSimple.length > 5" data-ng-class="{ 'hidden': itemsExpanded}">
           <a href="#" ng-hide="sizeOutNoExpanded != tx.voutSimple.length" ng-click="currentOutNoExpanded=0; sizeOutNoExpanded=5"><small translate>...less</small></a>
           <a href="#" ng-hide="currentOutNoExpanded >= tx.voutSimple.length/sizeOutNoExpanded - 1" ng-click="currentOutNoExpanded=0; sizeOutNoExpanded=tx.voutSimple.length"><small translate>more...</small></a>
->>>>>>> Misc fix
         </div>
       </div>
 
@@ -167,13 +142,8 @@
           <div class="panel panel-default transaction-vin-vout">
             <div class="panel-body">
               <div class="pull-right btc-value">
-<<<<<<< HEAD
                 <span>{{$root.currency.getConvertion(vout.value) || vout.value + ' MONA'}}
-                  <span class="text-success" data-ng-show="!vout.spentTxId" tooltip="Output is unspent" tooltip-placement="left">(U)</span>
-=======
-                <span>{{$root.currency.getConvertion(vout.value) || vout.value + ' BTC'}}
                   <span class="text-success" data-ng-show="!vout.spentTxId" tooltip="{{'Output is unspent'|translate}}" tooltip-placement="left">(U)</span>
->>>>>>> fix translation handlings.
                   <a class="glyphicon glyphicon-chevron-right" data-ng-show="vout.spentTxId" href="/tx/{{vout.spentTxId}}/</{{vout.spentIndex}}" title="Spent at: {{vout.spentTxId}},{{vout.spentIndex}}"></a>
                 </span>
               </div>
@@ -198,15 +168,9 @@
           <button type="button" class="btn btn-default btn-sm" data-ng-show="(from_vout) && tx.vout.length > 1" data-ng-disabled="fromVoutCollapsed" data-ng-click="currentOutExpanded=0; sizeOutExpanded=tx.vout.length;fromVoutCollapsed=1">Show output #{{ v_index }}</button>
           <button type="button" class="btn btn-default btn-sm" data-ng-show="(from_vout) && tx.vout.length > 1" data-ng-disabled="!fromVoutCollapsed" data-ng-click="currentOutExpanded=0; sizeOutExpanded=tx.vout.length;fromVoutCollapsed=0">Show all</button>
         </div>
-<<<<<<< HEAD
-        <div class="showmore_collapse text-left" data-ng-show="tx.vout.length > 5 && !fromVoutCollapsed" data-ng-class="{ 'hidden': !itemsExpanded}">
-          <button type="button" class="btn btn-info btn-sm" ng-hide="sizeOutExpanded != tx.vout.length" ng-click="currentOutExpanded=0; sizeOutExpanded=5"><i class="glyphicon glyphicon-chevron-up"></i>Show less</button>
-          <button type="button" class="btn btn-info btn-sm" ng-hide="currentOutExpanded >= tx.vout.length/sizeOutExpanded - 1" ng-click="currentOutExpanded=0; sizeOutExpanded=tx.vout.length"><i class="glyphicon glyphicon-chevron-down"></i> Show more</button>
-=======
         <div class="showmore_collapse text-right" data-ng-show="tx.vout.length > 5 && !fromVoutCollapsed" data-ng-class="{ 'hidden': !itemsExpanded}">
           <a href="#" ng-hide="sizeOutExpanded != tx.vout.length" ng-click="currentOutExpanded=0; sizeOutExpanded=5"><small translate>...less</small></a>
           <a href="#" data-ng-class="{true: 'v_highlight_more', false: ''}[from_vout == true && v_index > 5]" ng-hide="currentOutExpanded >= tx.vout.length/sizeOutExpanded - 1" ng-click="currentOutExpanded=0; sizeOutExpanded=tx.vout.length"><small>more...</small></a>
->>>>>>> Misc fix
         </div>
       </div>
     </div>
@@ -218,27 +182,13 @@
   <span class="btn-copy" clip-copy="tx.blockhash"></span>
 </div>
 
-<<<<<<< HEAD
 <div class="line-top row" data-ng-hide="!tx">
   <div class="col-xs-6 col-sm-4 col-md-4">
-    <span data-ng-show="!tx.isCoinBase &&  !isNaN(parseFloat(tx.fees))" class="txvalues txvalues-default">Fees: {{$root.currency.getConvertion(tx.fees) || tx.fees + 'BTC'}} </span>
-=======
-<div class="line-top row ng-cloak" data-ng-hide="!tx" data-ng-cloak>
-  <div class="col-xs-12 col-sm-4 col-md-4">
-<<<<<<< HEAD
     <span data-ng-show="!tx.isCoinBase &&  !isNaN(parseFloat(tx.fees))" class="txvalues txvalues-default">Fees: {{$root.currency.getConvertion(tx.fees) || tx.fees + 'MONA'}} </span>
->>>>>>> s/Bitcoin/Monacoin, s/bitcoin/monacion, s/BTC/MONA
-  </div>
-  <div class="col-xs-6 col-sm-8 col-md-8 text-right">
-    <span data-ng-show="tx.confirmations" class="txvalues txvalues-success">{{tx.confirmations}} Confirmations</span>
-    <span data-ng-show="!tx.confirmations" class="txvalues txvalues-danger">Unconfirmed Transaction!</span>
-=======
-    <span data-ng-show="!tx.isCoinBase &&  !isNaN(parseFloat(tx.fees))" class="txvalues txvalues-default"><span translate>Fees:</span> {{$root.currency.getConvertion(tx.fees) || tx.fees + 'MONA'}} </span>
   </div>
   <div class="col-xs-12 col-sm-8 col-md-8 text-right">
     <span data-ng-show="tx.confirmations" class="txvalues txvalues-success" translate>{{tx.confirmations}} Confirmations</span>
     <span data-ng-show="!tx.confirmations" class="txvalues txvalues-danger" translate>Unconfirmed Transaction!</span>
->>>>>>> fix translation handlings.
     <span class="txvalues txvalues-primary">{{$root.currency.getConvertion(tx.valueOut) || tx.valueOut + ' MONA' }}</span>
   </div>
 </div>
