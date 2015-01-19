@@ -2,6 +2,7 @@ msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
 
 #: public/views/transaction/tx.html
 msgid "(Input unconfirmed)"
@@ -13,6 +14,10 @@ msgstr ""
 
 #: public/views/block.html
 msgid "(Orphaned)"
+msgstr ""
+
+#: public/views/transaction/tx.html
+msgid "...less"
 msgstr ""
 
 #: public/views/404.html
@@ -151,10 +156,6 @@ msgstr ""
 msgid "Go to home"
 msgstr ""
 
-#: public/views/index.html
-msgid "Hash"
-msgstr ""
-
 #: public/views/status.html
 msgid "Hash Serialized"
 msgstr ""
@@ -167,9 +168,12 @@ msgstr ""
 msgid "Height"
 msgstr ""
 
-#: public/views/transaction.html
 #: public/views/transaction/tx.html
 msgid "Included in Block"
+msgstr ""
+
+#: public/views/transaction/tx.html
+msgid "Incoherence in levelDB detected, please resync"
 msgstr ""
 
 #: public/views/transaction/tx.html
@@ -204,14 +208,6 @@ msgstr ""
 msgid "Latest Transactions"
 msgstr ""
 
-#: public/views/address.html
-msgid "Loading Address Information"
-msgstr ""
-
-#: public/views/block.html
-msgid "Loading Block Information"
-msgstr ""
-
 #: public/views/block_list.html
 msgid "Loading Selected Date..."
 msgstr ""
@@ -234,10 +230,6 @@ msgstr ""
 
 #: public/views/block.html
 msgid "Merkle Root"
-msgstr ""
-
-#: public/views/transaction.html
-msgid "Mined Time"
 msgstr ""
 
 #: public/views/block.html
@@ -305,10 +297,6 @@ msgstr ""
 
 #: public/views/status.html
 msgid "Proxy setting"
-msgstr ""
-
-#: public/views/transaction.html
-msgid "Received Time"
 msgstr ""
 
 #: public/views/redirect.html
@@ -392,10 +380,6 @@ msgstr ""
 msgid "Testnet"
 msgstr ""
 
-#: public/views/transaction/list.html
-msgid "There are no transactions involving this address."
-msgstr ""
-
 #: public/views/status.html
 msgid "Time Offset"
 msgstr ""
@@ -449,10 +433,6 @@ msgstr ""
 msgid "Unconfirmed Txs Balance"
 msgstr ""
 
-#: public/views/index.html
-msgid "Value Out"
-msgstr ""
-
 #: public/views/block.html
 #: public/views/status.html
 msgid "Version"
@@ -479,11 +459,19 @@ msgid "confirmed"
 msgstr ""
 
 #: public/views/transaction/tx.html
-msgid "mined at"
+msgid "more..."
 msgstr ""
 
 #: public/views/transaction/tx.html
 msgid "scriptSig"
+msgstr ""
+
+#: public/views/transaction/tx.html
+msgid "show all"
+msgstr ""
+
+#: public/views/transaction/tx.html
+msgid "show input {{ v_index }}"
 msgstr ""
 
 #: public/views/transaction/tx.html
